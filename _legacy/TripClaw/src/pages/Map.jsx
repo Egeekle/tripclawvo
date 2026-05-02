@@ -15,14 +15,19 @@ export default function Map() {
 
     // Setup MiroFish WebSocket
     const socket = createAgentWebSocket((message) => {
+      if (!message || typeof message !== 'object') {
+        return;
+      }
+
       if (message.type === 'SWARM_UPDATE') {
-        setAgents(message.data);
+        setAgents(Array.isArray(message.data) ? message.data : []);
       } else if (message.text || message.content) {
         // If the API sends text/content updates, render them on an agent
         const textToDisplay = message.text || message.content;
         setAgents(prevAgents => {
            if (prevAgents.length > 0) {
              const randomAgent = prevAgents[Math.floor(Math.random() * prevAgents.length)];
+             if (!randomAgent?.id) return prevAgents;
              setInteractions(prev => ({ ...prev, [randomAgent.id]: textToDisplay }));
              setTimeout(() => {
                setInteractions(curr => {
