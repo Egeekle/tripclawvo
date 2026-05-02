@@ -9,6 +9,8 @@
 const MIROFISH_API_URL =
   process.env.MIROFISH_API_URL ||
   "https://maritime.sh/api/agents/a092ba19-76c9-4bc6-8dfa-b35a3f1baaeb";
+const AGENT_AI_PROVIDER = process.env.AGENT_AI_PROVIDER || "workflow-local";
+const AGENT_AI_MODEL = process.env.AGENT_AI_MODEL || "maritime-v1";
 
 interface SimulationStatus {
   active: boolean;
@@ -27,6 +29,10 @@ interface Agent {
 
 interface SwarmReport {
   timestamp: string;
+  ai: {
+    provider: string;
+    model: string;
+  };
   status: SimulationStatus;
   agents: Agent[];
   topAgent: Agent | null;
@@ -127,11 +133,16 @@ async function buildSwarmReport(
 
   return {
     timestamp: new Date().toISOString(),
+    ai: {
+      provider: AGENT_AI_PROVIDER,
+      model: AGENT_AI_MODEL,
+    },
     status,
     agents,
     topAgent,
     summary: [
       `🌊 Maritime Swarm Report — Cycle ${status.simulationCycle}`,
+      `AI: ${AGENT_AI_PROVIDER} / ${AGENT_AI_MODEL}`,
       `Status: ${status.active ? "✅ Active" : "⚠️ Inactive"}`,
       `Agents: ${agents.length} active`,
       `Confidence: ${status.confidence ?? "N/A"}%`,
