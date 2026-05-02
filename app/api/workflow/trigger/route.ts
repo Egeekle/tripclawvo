@@ -1,4 +1,4 @@
-import { start } from "workflow";
+import { start } from "workflow/api";
 import { maritimeAgentWorkflow } from "@/app/workflows/maritime-agent";
 import { NextResponse } from "next/server";
 
@@ -8,15 +8,17 @@ export async function POST(req: Request) {
   try {
     const body = await req.json().catch(() => ({}));
 
-    const run = await start(maritimeAgentWorkflow, {
-      locationId: body.locationId ?? undefined,
-      action: body.action ?? undefined,
-    });
+    const run = await start(maritimeAgentWorkflow, [
+      {
+        locationId: body.locationId ?? undefined,
+        action: body.action ?? undefined,
+      },
+    ]);
 
     return NextResponse.json(
       {
         message: "Maritime workflow started",
-        runId: run.id,
+        runId: run.runId,
       },
       { status: 202 }
     );

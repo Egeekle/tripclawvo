@@ -1,4 +1,4 @@
-import { inspect } from "workflow";
+import { getRun } from "workflow/api";
 import { NextResponse } from "next/server";
 
 // GET /api/workflow/status/[runId]
@@ -9,13 +9,14 @@ export async function GET(
 ) {
   try {
     const { runId } = await params;
-    const run = await inspect(runId);
+    const run = getRun(runId);
+    const status = await run.status;
+    const output = status === "completed" ? await run.returnValue : null;
 
     return NextResponse.json({
-      id: run.id,
-      status: run.status,
-      output: run.output ?? null,
-      steps: run.steps ?? [],
+      id: run.runId,
+      status,
+      output,
     });
   } catch (error) {
     console.error("Failed to inspect workflow run:", error);

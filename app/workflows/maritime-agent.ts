@@ -1,5 +1,3 @@
-"use server";
-
 // ─── Maritime Agent Workflow ──────────────────────────────────────
 // Durable workflow that orchestrates the maritime swarm agent cycle:
 //   1. Fetch current simulation status from MiroFish
