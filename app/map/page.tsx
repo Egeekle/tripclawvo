@@ -53,6 +53,15 @@ export default function MapPage() {
           </button>
         ))}
       </section>
+
+      <div className="relative z-10 mx-auto mt-4 flex w-full max-w-5xl justify-end px-4 pb-6 sm:px-6">
+        <Link
+          href="/console"
+          className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-bold text-white"
+        >
+          Next: Console
+        </Link>
+      </div>
     </main>
   );
 }

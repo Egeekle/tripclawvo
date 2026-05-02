@@ -131,6 +131,15 @@ export default function ConsolePage() {
           ))}
         </section>
       ) : null}
+
+      <div className="mt-6 flex justify-start">
+        <Link
+          href="/"
+          className="rounded-lg border border-zinc-300 px-4 py-2 text-sm font-bold dark:border-zinc-700"
+        >
+          Back to Start
+        </Link>
+      </div>
     </main>
   );
 }

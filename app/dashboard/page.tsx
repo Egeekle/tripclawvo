@@ -98,6 +98,7 @@ export default function DashboardPage() {
 
       <section className="mt-6 rounded-xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
         <h2 className="text-lg font-semibold">Trigger OpenClaw Workflow</h2>
+        <p className="mt-1 text-xs text-zinc-500">Calls `POST /api/workflow/trigger` from this form.</p>
         <form className="mt-4 grid gap-3 sm:grid-cols-3" onSubmit={handleTrigger}>
           <input
             value={locationId}
@@ -123,7 +124,7 @@ export default function DashboardPage() {
 
       <section className="mt-6 rounded-xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
         <h2 className="text-lg font-semibold">Run Status</h2>
-        <p className="mt-1 text-xs text-zinc-500">This mirrors TripClaw dashboard controls using your local workflow routes.</p>
+        <p className="mt-1 text-xs text-zinc-500">Calls `GET /api/workflow/status/[runId]` when you press Check.</p>
         <div className="mt-4 flex gap-2">
           <input
             value={runId}
@@ -160,6 +161,15 @@ export default function DashboardPage() {
           <p className="mt-3 text-sm text-red-600 dark:text-red-400">{error}</p>
         ) : null}
       </section>
+
+      <div className="mt-6 flex justify-end">
+        <Link
+          href="/map"
+          className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-bold text-white"
+        >
+          Next: Map
+        </Link>
+      </div>
     </main>
   );
 }
