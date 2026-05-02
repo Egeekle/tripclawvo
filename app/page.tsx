@@ -17,34 +17,34 @@ export default function Home() {
       </section>
 
       <section className="mt-8">
-        <h1 className="text-3xl font-bold tracking-tight">Verify your identity</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Connect to ZeroClaw</h1>
         <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-          CampaignAI uses verification to keep the volunteer network trusted and safe.
+          TripClaw connects to your local ZeroClaw agent for autonomous planning and intelligence.
         </p>
       </section>
 
       <section className="mt-6 rounded-xl border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-        <h2 className="text-lg font-bold">Voter Registration and ID</h2>
+        <h2 className="text-lg font-bold">Agent Pairing</h2>
         <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-          Scan your ID or voter registration card to join the campaign.
+          Enter the pairing code from your ZeroClaw terminal to connect localhost gateway.
         </p>
         <div className="mt-4 space-y-2">
-          <button className="w-full rounded-lg bg-rose-600 px-4 py-3 text-sm font-bold text-white">
-            Scan ID Document
+          <button className="w-full rounded-lg bg-violet-600 px-4 py-3 text-sm font-bold text-white">
+            Pair Agent
           </button>
-          <button className="w-full rounded-lg border border-rose-300 bg-rose-50 px-4 py-3 text-sm font-bold text-rose-700 dark:border-rose-900 dark:bg-rose-950/30 dark:text-rose-300">
-            Link Voter Record
+          <button className="w-full rounded-lg border border-violet-300 bg-violet-50 px-4 py-3 text-sm font-bold text-violet-700 dark:border-violet-900 dark:bg-violet-950/30 dark:text-violet-300">
+            Continue in Demo Mode
           </button>
         </div>
       </section>
 
       <section className="mt-6">
-        <h3 className="text-lg font-bold">How do you want to help?</h3>
+        <h3 className="text-lg font-bold">What are you exploring?</h3>
         <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-          Choose skills to personalize your tasks.
+          Choose interests to help your agent personalize recommendations.
         </p>
         <div className="mt-3 flex flex-wrap gap-2 text-sm">
-          {["Canvassing", "Phone Banking", "Fundraising", "Social Media"].map(
+          {["Food & Dining", "Nature & Hiking", "Museums & Culture", "Photography"].map(
             (item) => (
               <span
                 key={item}
@@ -60,9 +60,9 @@ export default function Home() {
       <div className="fixed bottom-0 left-0 right-0 mx-auto w-full max-w-[430px] bg-gradient-to-t from-background via-background p-4">
         <Link
           href="/dashboard"
-          className="block w-full rounded-xl bg-rose-600 px-4 py-3 text-center text-base font-bold text-white"
+          className="block w-full rounded-xl bg-violet-600 px-4 py-3 text-center text-base font-bold text-white"
         >
-          Continue
+          Get Started
         </Link>
       </div>
     </main>

@@ -17,15 +17,23 @@ export default function MapPage() {
 
       <header className="relative z-10 mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-6 sm:px-6">
         <div>
-          <h1 className="text-xl font-bold">Global Tourist Hubs</h1>
-          <p className="text-xs uppercase tracking-wider text-rose-600">TripAI Explorer</p>
+          <h1 className="text-xl font-bold">Global Explorer Map</h1>
+          <p className="text-xs uppercase tracking-wider text-violet-600">OpenClaw Swarm</p>
         </div>
-        <Link
-          href="/dashboard"
-          className="rounded-lg bg-zinc-900 px-4 py-2 text-sm font-bold text-white dark:bg-zinc-100 dark:text-zinc-900"
-        >
-          Back to Dashboard
-        </Link>
+        <div className="flex items-center gap-2">
+          <Link
+            href="/console"
+            className="rounded-lg border border-violet-300 bg-violet-50 px-4 py-2 text-sm font-bold text-violet-700 dark:border-violet-900 dark:bg-violet-950/30 dark:text-violet-300"
+          >
+            Console
+          </Link>
+          <Link
+            href="/dashboard"
+            className="rounded-lg bg-zinc-900 px-4 py-2 text-sm font-bold text-white dark:bg-zinc-100 dark:text-zinc-900"
+          >
+            Dashboard
+          </Link>
+        </div>
       </header>
 
       <section className="relative z-10 mx-auto mt-10 h-[70vh] w-full max-w-5xl rounded-2xl border border-zinc-200 bg-white/70 p-4 shadow-xl backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/70">
@@ -36,7 +44,7 @@ export default function MapPage() {
             className="absolute -translate-x-1/2 -translate-y-1/2"
             style={{ top: city.top, left: city.left }}
           >
-            <div className="rounded-full bg-rose-600 p-2 text-xs font-bold text-white shadow-lg shadow-rose-600/40">
+            <div className="rounded-full bg-violet-600 p-2 text-xs font-bold text-white shadow-lg shadow-violet-600/40">
               ●
             </div>
             <span className="mt-2 inline-block rounded bg-white px-2 py-1 text-[10px] font-semibold text-zinc-800 shadow dark:bg-zinc-800 dark:text-zinc-100">
