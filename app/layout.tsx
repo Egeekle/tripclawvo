@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Maritime Workflow Console",
-  description: "Trigger and monitor maritime agent workflow runs",
+  title: "TripClaw Maritime Console",
+  description: "Legacy TripClaw flow adapted for Vercel deployment",
 };
 
 export default function RootLayout({
